@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     try {
       const response = await sendMessageToAPI(userMessage);
-      addMessageToChat('Bot', response, 'bot');
+      addMessageToChat('Sara', response, 'bot');
     } catch (error) {
       console.error('Error sending message to API:', error);
       addMessageToChat('Error', 'Unable to get a response from the server. Please try again later.', 'error');

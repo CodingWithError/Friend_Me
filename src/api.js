@@ -1,4 +1,4 @@
-const API_URL = 'https://your-hosted-backend-url.com/api/chat'; // Update with your hosted backend URL
+const API_URL = 'https://your-hosted-backend-url.com/api/chat';
 
 export async function sendMessage(message) {
     try {

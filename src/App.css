@@ -1,18 +1,18 @@
 body {
-  margin: 0; /* Remove default margin */
-  padding: 0; /* Remove default padding */
-  height: 100vh; /* Full height */
-  width: 100vw; /* Full width */
-  overflow: hidden; /* Prevent scrolling */
-  background-color: #282c34; /* Background color */
-  color: white; /* Text color */
+  margin: 0; 
+  padding: 0; 
+  height: 100vh; 
+  width: 100vw; 
+  overflow: hidden; 
+  background-color: #282c34; 
+  color: white; 
 }
 
 .container {
     display: flex;
     flex-direction: column;
-    height: 100vh; /* Full height */
-    width: 100vw; /* Full width */
+    height: 100vh;
+    width: 100vw;
     padding: 20px;
     background-color: #282c34;
     color: white;
@@ -23,7 +23,7 @@ body {
 .message-box {
     width: 100%;
     max-width: 600px;
-    height: 70%; /* Set a fixed height for the message box */
+    height: 70%;
     border: 1px solid #ccc;
     border-radius: 5px;
     padding: 10px;
@@ -35,9 +35,9 @@ body {
 
 .message-history {
     flex: 1;
-    overflow-y: auto; /* Allow scrolling only if necessary */
+    overflow-y: auto;
     display: flex;
-    flex-direction: column; /* Ensure messages stack vertically */
+    flex-direction: column;
 }
 
 .input-container {

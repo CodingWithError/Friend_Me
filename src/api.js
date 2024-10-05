@@ -1,4 +1,4 @@
-const API_URL = 'https://your-hosted-backend-url.com/api/chat';
+const API_URL = 'https://friend-me-backend-mpekl66h6-codingwitherrors-projects.vercel.app/api/chat';
 
 export async function sendMessage(message) {
     try {

@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-import { sendMessage } from './api';
 import './App.css'; 
 
 function App() {
@@ -7,9 +6,27 @@ function App() {
     const [responses, setResponses] = useState([]); 
 
     const handleSend = async () => {
+        if (!userInput.trim()) return;
+
         try {
-            const result = await sendMessage(userInput);
-            setResponses(prevResponses => [...prevResponses, { user: userInput, bot: `Sara: ${result}` }]); // Prefix bot response with "Sara:"
+            const response = await fetch('http://localhost:5000/api/chat', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ message: userInput }),
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
+
+            const data = await response.json();
+            if (data.response) {
+                setResponses(prevResponses => [...prevResponses, { user: userInput, bot: data.response }]);
+            } else {
+                console.error('Unexpected response format:', data);
+            }
             setUserInput('');
         } catch (error) {
             console.error('Error:', error);
@@ -22,9 +39,13 @@ function App() {
             <div className="message-box">
                 <div className="message-history">
                     {responses.map((msg, index) => (
-                        <div key={index}>
-                            <p><strong>You:</strong> {msg.user}</p>
-                            <p><strong>Bot:</strong> {msg.bot}</p>
+                        <div key={index} className="message-group">
+                            <div className="user-message">
+                                <p className='USER'><strong>You:</strong> {msg.user}</p>
+                            </div>
+                            <div className="bot-message">
+                                <p className='BOT'><strong>Sara:</strong> {msg.bot}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
@@ -33,6 +54,7 @@ function App() {
                         type="text"
                         value={userInput}
                         onChange={(e) => setUserInput(e.target.value)}
+                        onKeyPress={(e) => e.key === 'Enter' && handleSend()}
                         placeholder="Type your message..."
                         className="input-field"
                     />

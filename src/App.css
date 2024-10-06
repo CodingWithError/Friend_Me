@@ -7,7 +7,22 @@ body {
   background-color: #282c34; 
   color: white; 
 }
-
+.USER{
+  margin-top: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: right;
+}
+.BOT{
+  margin-top: 5px;
+  margin-left: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  margin-bottom: 5px;
+  text-align: left;
+}
 .container {
     display: flex;
     flex-direction: column;
@@ -39,7 +54,29 @@ body {
     display: flex;
     flex-direction: column;
 }
+.message-group {
+  margin-bottom: 15px;
+}
 
+.user-message, .bot-message {
+  max-width: 70%;
+  padding: 10px;
+  border-radius: 10px;
+  margin-bottom: 5px;
+}
+
+.user-message {
+  background-color: #007bff;
+  color: white;
+  align-self: flex-end;
+  margin-left: auto;
+}
+
+.bot-message {
+  background-color: #f1f1f1;
+  color: black;
+  align-self: flex-start;
+}
 .input-container {
     display: flex;
     margin-top: 10px;
